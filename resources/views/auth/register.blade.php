@@ -10,7 +10,7 @@
            <img src="{{ asset('img/registrar.jpg')}}" alt="no hay foto">
         </div>
         <div class="md:w-4/12 bg-white p-6 rounded-lg shadow-xl">
-            <form action="/register" method="POST" >
+            <form action={{ route('register')}} method="POST" >
                 @csrf
                 <div>
                     <label for="name" class="mb-2 block uppercase text-gray-500 font-bold">
@@ -23,6 +23,9 @@
                         placeholder="tu nombre"
                         class="border p-3 w-full rounded-lg"
                     />
+                    @error('name')
+                        <p class="bg-red-500 text-white my-2 text-sm p-2 text-center">El nombre es obligatorio</p>
+                    @enderror
                 </div>
                 <div class="mb-5">
                     <label for="username" class="mb-2 block uppercase text-gray-500 font-bold">
@@ -30,7 +33,7 @@
                     </label>
                     <input 
                         id="username"
-                        name="Username"
+                        name="username"
                         type="text"
                         placeholder="tu nombre de usuario"
                         class="border p-3 w-full rounded-lg"

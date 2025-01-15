@@ -12,9 +12,14 @@ class RegisterController extends Controller
         return view('auth.register');
     }
     //elimina un registro
-    public function store()
+    public function store(Request $request)
     {
-        dd('Post...');        
+        //dd($request->get('name'));
+        //dd($request);  
+        //Validaciones en laravel
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+        ]);
     }
 
 }
