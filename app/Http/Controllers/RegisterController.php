@@ -18,7 +18,10 @@ class RegisterController extends Controller
         //dd($request);  
         //Validaciones en laravel
         $validatedData = $request->validate([
-            'name' => 'required|string|max:255',
+            'name' => 'required|string|min:5',
+            'username' => 'required|unique:users|min:3|max:20',
+            'email' => 'required|unique:users|email|max:60',
+            'password' => 'required'            
         ]);
     }
 

@@ -21,10 +21,11 @@
                         name="name"
                         type="text"
                         placeholder="tu nombre"
-                        class="border p-3 w-full rounded-lg"
+                        class="border p-3 w-full rounded-lg @error('name') border-red-500                           
+                        @enderror"
                     />
                     @error('name')
-                        <p class="bg-red-500 text-white my-2 text-sm p-2 text-center">El nombre es obligatorio</p>
+                        <p class="bg-red-500 text-white my-2 text-sm p-2 text-center">{{ $message }}</p>
                     @enderror
                 </div>
                 <div class="mb-5">
@@ -38,6 +39,9 @@
                         placeholder="tu nombre de usuario"
                         class="border p-3 w-full rounded-lg"
                     />
+                    @error('username')
+                    <p class="bg-red-500 text-white my-2 text-sm p-2 text-center">{{ $message }}</p>
+                    @enderror
                 </div>
                 <div>
                     <label for="email" class="mb-2 block uppercase text-gray-500 font-bold">
@@ -50,6 +54,9 @@
                         placeholder="email de registro"
                         class="border p-3 w-full rounded-lg"
                     />
+                    @error('email')
+                    <p class="bg-red-500 text-white my-2 text-sm p-2 text-center">{{ $message }}</p>
+                    @enderror
                 </div>
                 <div>
                     <label for="password" class="mb-2 block uppercase text-gray-500 font-bold">
@@ -62,6 +69,9 @@
                         placeholder="contraseña"
                         class="border p-3 w-full rounded-lg"
                     />
+                    @error('password')
+                    <p class="bg-red-500 text-white my-2 text-sm p-2 text-center">{{ $message }}</p>
+                    @enderror
                 </div>
                 <div>
                     <label for="password_confirmation" class="mb-2 block uppercase text-gray-500 font-bold">
