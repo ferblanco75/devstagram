@@ -19,6 +19,8 @@ class RegisterController extends Controller
     {
         //dd($request->get('name'));
         //dd($request);  
+        //modifico el request
+        $request->request->add(['username' => Str::slug($request->username)]);
         //Validaciones en laravel
         $validatedData = $request->validate([
             'name' => 'required|string|min:3',
@@ -29,9 +31,11 @@ class RegisterController extends Controller
 
         User::create([
             'name' => $request->name,
-            'username' => Str::lower($request->username),
+            'username' => $request->username,
             'email' => $request->email,
             'password' => Hash::make($request->password)
         ]);
+
+        return redirect()->route('posts.index');
     }
 }
