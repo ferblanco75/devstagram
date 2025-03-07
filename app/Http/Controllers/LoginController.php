@@ -10,7 +10,15 @@ class LoginController extends Controller
         return view('auth.login');
     }
 
-    public function store(){
-        dd('autenticando ....');
+    public function store(Request $request){
+        $validatedData = $request->validate([
+            'email' => 'required|email',
+            'password' => 'required'            
+        ]);
+
+        if(!auth()->attempt($request->only('email','password'))){
+            return back()->with('mensaje', 'Credenciales incorrectas');
+        }
+        return redirect()->route('posts.index');
     }
 }
