@@ -36,6 +36,15 @@ class RegisterController extends Controller
             'password' => Hash::make($request->password)
         ]);
 
+    
+        //autenticar usuarios
+        auth()->attempt([
+            'email' => $request->email,
+            'password' => $request->password
+        ]);
+
+
+        //laravel me da un redireccionar
         return redirect()->route('posts.index');
     }
 }
