@@ -15,12 +15,16 @@
             </h1>
 
             @auth
-                <p>autenticado</p>    
+            <nav class="flex gap-2 items-center">
+                <a class="font-bold uppercase text-gray-600 text-sm"  href="#">Hola: <span class="font-normal">{{auth()->user()->username}}</span> </a>
+                <a  href="{{ route('logout') }}" class="font-bold uppercase text-gray-600 text-sm"  >Cerrar sesión</a>
+    
+            </nav>   
             @endauth
             
             @guest
                 <nav class="flex gap-2 items-center">
-                    <a class="font-bold uppercase text-gray-600 text-sm"  href="#">Login</a>
+                    <a class="font-bold uppercase text-gray-600 text-sm"  href="#">Login </a>
                     <a  href="{{ route('register') }}" class="font-bold uppercase text-gray-600 text-sm"  >Crear CUenta</a>
         
                 </nav>
