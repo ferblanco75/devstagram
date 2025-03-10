@@ -41,8 +41,10 @@
                         name="password"
                         type="password"
                         placeholder="contraseña"
-                        class="border p-3 w-full rounded-lg @error('password') border-red-500                           
-                        @enderror"
+                        class="border p-3 w-full rounded-lg 
+                        @error('password')
+                             <p class="bg-red-500 text-white my-2 text-sm p-2 text-center">{{ $message }}</p>
+                        @enderror
                     />
                     @error('password')
                     <p class="bg-red-500 text-white my-2 text-sm p-2 text-center">{{ $message }}</p>
