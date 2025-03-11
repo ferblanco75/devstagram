@@ -19,6 +19,7 @@ Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'store']);
 
 Route::post('/logout', [LogoutController::class, 'store'])->name('logout');
-
-Route::get('/muro', [PostController::class, 'index'])->name('posts.index');
+//la ruta de abajo está asociada a un objeto/modelo
+//hace automaticamente la asociación
+Route::get('/{user:username}', [PostController::class, 'index'])->name('posts.index');
 
