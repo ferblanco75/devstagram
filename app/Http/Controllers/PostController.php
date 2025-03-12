@@ -17,4 +17,8 @@ class PostController extends \Illuminate\Routing\Controller
             'user' => $user
         ]);
     }
+
+    public function create(){
+        dd('creando posteo piola...');
+    }
 }
