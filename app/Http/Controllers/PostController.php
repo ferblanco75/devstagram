@@ -19,6 +19,6 @@ class PostController extends \Illuminate\Routing\Controller
     }
 
     public function create(){
-        dd('creando posteo piola...');
+        return view('posts.create');
     }
 }
