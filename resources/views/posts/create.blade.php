@@ -13,19 +13,20 @@
         <div class="md:w-1/2 p-10 bg-white rounded-lg shadow-xl mt-10 md:mt-0">
             <form action={{ route('register')}} method="POST" >
                 @csrf
-                <div>
-                    <label for="name" class="mb-2 block uppercase text-gray-500 font-bold">
-                        Nombre
+                <div class="mb-5">
+                    <label for="titulo" class="mb-2 block uppercase text-gray-500 font-bold">
+                        Titulo
                     </label>
                     <input 
-                        id="name"
-                        name="name"
+                        id="titulo"
+                        name="titulo"
                         type="text"
-                        placeholder="tu nombre"
+                        placeholder="tu título"
                         class="border p-3 w-full rounded-lg @error('name') border-red-500                           
                         @enderror"
+                        value="{{ old('titulo') }}"
                     />
-                    @error('name')
+                    @error('titulo')
                         <p class="bg-red-500 text-white my-2 text-sm p-2 text-center">{{ $message }}</p>
                     @enderror
                 </div>
