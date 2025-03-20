@@ -26,7 +26,7 @@
 
                     Crear
                 </a>
-                <a class="font-bold uppercase text-gray-600 text-sm"  href="#">Hola: <span class="font-normal">{{auth()->user()->username}}</span> </a>
+                <a class="font-bold uppercase text-gray-600 text-sm"  href="{{ route('posts.index', auth()->user()->username )}}">Hola: <span class="font-normal">{{auth()->user()->username}}</span> </a>
                 <form method="POST" action={{route('logout')}}>
                     @csrf
                     <button type="submit"  class="font-bold uppercase text-gray-600 text-sm"  >Cerrar sesión</button>
