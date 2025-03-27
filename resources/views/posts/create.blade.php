@@ -8,7 +8,7 @@
 @section('contenido')   
     <div class="md:flex md:items-center">
         <div class="md:w-1/2 px-10">
-            <form id="dropzone" action="">
+            <form action="/IMAGENES" method="POST" id="dropzone" class="dropzone border-dashed border-2 w-full h-96 rounded flex flex-col justify-center items-center">
                 
             </form>
         </div>
