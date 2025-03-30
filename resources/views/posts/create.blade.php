@@ -4,12 +4,15 @@
     Crea un nuevo posteo
 @endsection
 
-
+@push('styles')
+    <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
+@endpush
+    
 @section('contenido')   
     <div class="md:flex md:items-center">
         <div class="md:w-1/2 px-10">
-            <form action="/IMAGENES" method="POST" id="dropzone" class="dropzone border-dashed border-2 w-full h-96 rounded flex flex-col justify-center items-center">
-                
+            <form action="{{route('imagenes.store')}}" method="POST" enctype="multipart/form-data" id="dropzone" class="dropzone border-dashed border-2 w-full h-96 rounded flex flex-col justify-center items-center">
+                @csrf
             </form>
         </div>
         <div class="md:w-1/2 p-10 bg-white rounded-lg shadow-xl mt-10 md:mt-0">
@@ -22,7 +25,7 @@
                     <input 
                         id="titulo"
                         name="titulo"
-                        type="text"
+                        type="text
                         placeholder="título de la publicacion"
                         class="border p-3 w-full rounded-lg @error('name') border-red-500                           
                         @enderror"
