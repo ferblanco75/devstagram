@@ -5,6 +5,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\ImagenController;
 
 //este route llama a la view llamada welcome.blade
 Route::get('/', function () {
@@ -25,3 +26,4 @@ Route::get('/{user:username}', [PostController::class, 'index'])->name('posts.in
 Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
 
 Route::get('/imagenes',[ImagenController::class, 'store'])->name('imagenes.store');
+Route::post('/imagenes',[ImagenController::class, 'store'])->name('imagenes.store');
