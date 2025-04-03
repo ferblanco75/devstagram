@@ -16,9 +16,16 @@ class PostController extends \Illuminate\Routing\Controller
         return view('dashboard',[
             'user' => $user
         ]);
-    }
+    } 
 
     public function create(){
         return view('posts.create');
+    }
+
+    public function store(Request $request){
+        $this->validate($request, [
+            'titulo' => 'required |max:255',
+            'descripcion' => 'required |max:255',
+        ]);
     }
 }
