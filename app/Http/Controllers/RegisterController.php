@@ -44,7 +44,7 @@ class RegisterController extends Controller
         ]);
 
 
-        //laravel me da un redireccionar
-        return redirect()->route('posts.index');
+        $user = auth()->user();
+        return redirect()->route('posts.index', ['user' => $user->username]);
     }
 }
