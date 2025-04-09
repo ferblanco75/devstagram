@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class PostController extends \Illuminate\Routing\Controller
@@ -23,10 +24,11 @@ class PostController extends \Illuminate\Routing\Controller
     }
 
     public function store(Request $request){
-        $this->validate($request, [
+
+        $validatedData = $request->validate([
             'titulo' => 'required |max:255',
             'descripcion' => 'required',
-            'imagen' => 'required',
+            'imagen' => 'required',          
         ]);
         
         Post::create([
@@ -36,6 +38,6 @@ class PostController extends \Illuminate\Routing\Controller
             'user_id' => auth()->user()->id,          
         ]);
         
-        return redirect()->route('posts.index', auth()->user()->username);
+        return redirect()->route('posts.index', auth()->user()->username); 
     }
 }

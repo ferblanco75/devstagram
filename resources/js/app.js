@@ -1,4 +1,4 @@
-import Dropzone, { SUCCESS } from 'dropzone';
+import Dropzone from 'dropzone';
 
 Dropzone.autoDiscover = false;
 
@@ -26,13 +26,9 @@ const dropzone = new Dropzone('#dropzone', {
     }
 );
 
-dropzone.on("sending", function(file, xhr, formData){
-    console.log(formData);
-});
 
 
-dropzone.on('success', function(file, response){
-    console.log(response.imagen);
+dropzone.on("success", function(file, response){
     document.querySelector('[name="imagen"]').value = response.imagen;
 });
 
