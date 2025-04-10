@@ -29,3 +29,8 @@
         </div>
     </div>
 @endsection
+
+<section class="container mx-auto mt-10">
+    <h2 class="text-4xl text-center font-black my-10"> Publicaciones </h2>
+    dd({{ $posts }})
+</section>
