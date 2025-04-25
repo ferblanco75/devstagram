@@ -6,6 +6,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\ImagenController;
+use App\Http\Controllers\ComentarioController;
 
 //este route llama a la view llamada welcome.blade
 Route::get('/', function () {
