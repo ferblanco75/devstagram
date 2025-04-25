@@ -52,6 +52,8 @@ class PostController extends \Illuminate\Routing\Controller
     }
 
     public function show(User $user, Post $post){
+        $post->load('comentarios.user');
+
         return view('posts.show', [
             'post' => $post,
             'user' => $user

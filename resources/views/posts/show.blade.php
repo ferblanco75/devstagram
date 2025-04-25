@@ -62,7 +62,7 @@
             @endauth    
             
             <div class="bg-white shadow mb-5 max-h-96 overflow-y-scroll">
-                @if($post->comentarios->count())
+                @if ($post->comentarios->count())
                     @foreach( $post->comentarios as $comentario)
                         <div class="p-5 border-gray-300 border-b">
                             <a href="{{ route('posts.index', $comentario->user ) }}"class="font-bold">{{ $comentario->user->username }}</a>
