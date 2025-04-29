@@ -7,6 +7,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\ImagenController;
 use App\Http\Controllers\ComentarioController;
+use App\Http\Controllers\LikeController;
 
 //este route llama a la view llamada welcome.blade
 Route::get('/', function () {
@@ -28,7 +29,7 @@ Route::get('/{user:username}', [PostController::class, 'index'])->name('posts.in
 Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
 Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
 Route::get('/{user:username}/posts/{post}' , [PostController::class, 'show'])->name('posts.show');
-Route::delete('/posts/{post}',[PostController::class, 'destroy'])->name('posts.destroy');
+Route::delete('/posts/{post}',[PostController::class, 'destroy'])->name('posts.destroy');   
 
 Route::post('/{user:username}/posts/{post}' , [ComentarioController::class, 'store'])->name('comentarios.store');
 
@@ -36,4 +37,7 @@ Route::get('/imagenes',[ImagenController::class, 'store'])->name('imagenes.store
 Route::post('/imagenes',[ImagenController::class, 'store'])->name('imagenes.store');
 
 //agrego ruteo para ver un posteo
+
+//like a las fotos
+Route::post('/posts/{post}/likes', [LikeController::class, 'store'])->name('posts.likes.store');
 
