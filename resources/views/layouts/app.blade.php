@@ -38,11 +38,10 @@
             </nav>   
             @endauth
             
-            @guest
+           @guest
                 <nav class="flex gap-2 items-center">
-                    <a class="font-bold uppercase text-gray-600 text-sm"  href="#">Login </a>
-                    <a  href="{{ route('register') }}" class="font-bold uppercase text-gray-600 text-sm"  >Crear CUenta</a>
-        
+                    <a href="{{ route('login') }}" class="font-bold uppercase text-gray-600 text-sm">Login</a>
+                    <a href="{{ route('register') }}" class="font-bold uppercase text-gray-600 text-sm">Crear Cuenta</a>
                 </nav>
             @endguest
         </div>
@@ -56,6 +55,7 @@
         <footer class="text-center p-5 text-gray-500 font-bold uppercase">
                 Devstagram - todos los derechos reservados {{now()->year}}
         </footer>
+        @stack('scripts')
     </body>
 
  </html>

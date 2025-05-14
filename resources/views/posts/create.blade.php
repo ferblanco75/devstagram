@@ -73,3 +73,30 @@
         </div>
     </div> 
 @endsection
+
+@push('scripts')
+<script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+<script>
+    Dropzone.autoDiscover = false;
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const dropzoneElement = document.getElementById('dropzone');
+
+        if (dropzoneElement) {
+            new Dropzone("#dropzone", {
+                dictDefaultMessage: "Subí una imagen aquí",
+                acceptedFiles: ".png,.jpg,.jpeg,.gif",
+                addRemoveLinks: true,
+                maxFiles: 1,
+                uploadMultiple: false,
+                init: function () {
+                    this.on("success", function (file, response) {
+                        const input = document.querySelector('input[name=\"imagen\"]');
+                        input.value = response.imagen;
+                    });
+                }
+            });
+        }
+    });
+</script>
+@endpush

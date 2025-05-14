@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Comentario;
+use App\Models\User;
 
 class Post extends Model
 {
@@ -28,5 +29,9 @@ class Post extends Model
 
     public function likes(){
         return $this->hasMany(Like::class);
+    }
+
+    public function checkLike(User $user){
+        return $this->likes->contains('user_id', $user->id);
     }
 }
