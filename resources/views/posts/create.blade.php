@@ -11,7 +11,7 @@
 @section('contenido')   
     <div class="md:flex md:items-center">
         <div class="md:w-1/2 px-10">
-            <form action="{{route('imagenes.store')}}" method="POST" enctype="multipart/form-data" id="dropzone" class="dropzone border-dashed border-2 w-full h-96 rounded flex flex-col justify-center items-center">
+            <form action="{{route('imagenes.store')}}" method="POST" enctype="multipart/form-data" id="dropzone" class="border-dashed border-2 w-full h-96 rounded flex flex-col justify-center items-center">
                 @csrf
             </form>
         </div>
@@ -74,29 +74,4 @@
     </div> 
 @endsection
 
-@push('scripts')
-<script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
-<script>
-    Dropzone.autoDiscover = false;
 
-    document.addEventListener("DOMContentLoaded", function () {
-        const dropzoneElement = document.getElementById('dropzone');
-
-        if (dropzoneElement) {
-            new Dropzone("#dropzone", {
-                dictDefaultMessage: "Subí una imagen aquí",
-                acceptedFiles: ".png,.jpg,.jpeg,.gif",
-                addRemoveLinks: true,
-                maxFiles: 1,
-                uploadMultiple: false,
-                init: function () {
-                    this.on("success", function (file, response) {
-                        const input = document.querySelector('input[name=\"imagen\"]');
-                        input.value = response.imagen;
-                    });
-                }
-            });
-        }
-    });
-</script>
-@endpush
