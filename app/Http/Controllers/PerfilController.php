@@ -43,7 +43,7 @@ class PerfilController extends \Illuminate\Routing\Controller
             // Redimensionar la imagen a 1000x1000
             $imagenServidor->cover(1000, 1000);
             // Verificar si la carpeta 'uploads' existe, si no, la crea
-            $rutaUploads = public_path('uploads');
+            $rutaUploads = public_path('perfiles');
             if (!file_exists($rutaUploads)) {
                 mkdir($rutaUploads, 0777, true);
             }
@@ -55,7 +55,7 @@ class PerfilController extends \Illuminate\Routing\Controller
         //guardar cambios
         $usuario = User::find(auth()->user()->id);
         $usuario->username = $request->username;
-        //$usuario->imagen = $nombreImagen ?? '';
+        $usuario->imagen = $nombreImagen ?? auth()->user()->imagen ?? null;
         $usuario->save();
         //redirect al muro
         return redirect()->route('posts.index', $usuario->username);

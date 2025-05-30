@@ -9,6 +9,7 @@ use App\Http\Controllers\ImagenController;
 use App\Http\Controllers\ComentarioController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\PerfilController;
+use App\Http\Controllers\FollowerController;
 
 //este route llama a la view llamada welcome.blade
 Route::get('/', function () {
@@ -47,7 +48,9 @@ Route::delete('/posts/{post}/likes', [LikeController::class, 'destroy'])->name('
 
 Route::get('/{user:username}/posts/{post}' , [PostController::class, 'show'])->name('posts.show');
 
-
+//siguiendo a usuario
+Route::post('/{user:username}/follow' , [FollowerController::class, 'store'])->name('users.follow');
+Route::delete('/{user:username}/unfollow' , [FollowerController::class, 'destroy'])->name('users.unfollow');
 
 
 
