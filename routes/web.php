@@ -10,11 +10,10 @@ use App\Http\Controllers\ComentarioController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\PerfilController;
 use App\Http\Controllers\FollowerController;
+use App\Http\Controllers\HomeController;
 
 //este route llama a la view llamada welcome.blade
-Route::get('/', function () {
-    return view('principal');
-});
+Route::get('/', HomeController::class)->name('home');
 
 
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
@@ -45,7 +44,7 @@ Route::post('/imagenes',[ImagenController::class, 'store'])->name('imagenes.stor
 //like a las fotos
 Route::post('/posts/{post}/likes', [LikeController::class, 'store'])->name('posts.likes.store');
 Route::delete('/posts/{post}/likes', [LikeController::class, 'destroy'])->name('posts.likes.destroy');
-
+    
 Route::get('/{user:username}/posts/{post}' , [PostController::class, 'show'])->name('posts.show');
 
 //siguiendo a usuario
