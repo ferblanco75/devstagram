@@ -11,7 +11,7 @@
 @section('contenido')   
     <div class="md:flex md:items-center">
         <div class="md:w-1/2 px-10">
-            <form action="{{route('imagenes.store')}}" method="POST" enctype="multipart/form-data" id="dropzone" class="dropzone border-dashed border-2 w-full h-96 rounded flex flex-col justify-center items-center">
+            <form action="{{route('imagenes.store')}}" method="POST" enctype="multipart/form-data" id="dropzone" class="border-dashed border-2 w-full h-96 rounded flex flex-col justify-center items-center">
                 @csrf
             </form>
         </div>
@@ -53,6 +53,16 @@
                         <p class="bg-red-500 text-white my-2 text-sm p-2 text-center">{{ $message }}</p>
                     @enderror
                 </div>
+                <div class="mb-5">
+                    <input 
+                        name="imagen"
+                        type="hidden"
+                        value="{{old('imagen')}}"
+                    />
+                    @error('imagen')
+                        <p class="bg-red-500 text-white my-2 text-sm p-2 text-center">{{ $message }}</p>
+                    @enderror
+                </div>
                 <input 
                 type="submit" 
                 value="publicar" 
@@ -63,3 +73,5 @@
         </div>
     </div> 
 @endsection
+
+
