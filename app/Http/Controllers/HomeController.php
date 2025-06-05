@@ -5,15 +5,18 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
-class HomeController extends Controller
+class HomeController extends \Illuminate\Routing\Controller
+
 {
 
     public function __construct(){
-        $this-̣̣̣̣̣>middleware('auth');
+    $this->middleware('auth'); // ✔️ Esto es correcto
     }
 
-    public function __invoke(){
+
+    public function index(){
         //obtener a quienes seguimos
         $ids = auth()->user()->followings->pluck('id')->toArray() ;
         //mostrar los posteos de los que seguimos

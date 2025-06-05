@@ -13,7 +13,7 @@ use App\Http\Controllers\FollowerController;
 use App\Http\Controllers\HomeController;
 
 //este route llama a la view llamada welcome.blade
-Route::get('/', HomeController::class)->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
